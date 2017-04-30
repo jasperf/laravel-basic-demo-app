@@ -29,9 +29,16 @@ Route::get('wsdb', function () {
     return view('wsdb', compact('workshops'));
 });
 
+// Eloquent Active Records
+Route::get('/workshops', function () {
+    $workshops = App\Workshop::all();
+    return view('workshops.index', compact('workshops'));
+});
+
 // wildcard
 // http://ch9.dev/workshops/1
 Route::get('/workshops/{workshop}', function ($id) {
+    // query builder
     $workshop = DB::table('workshops')->find($id);
     //dd($id); // Laravel helper function die and dump
     //dd($workshop);
