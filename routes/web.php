@@ -30,8 +30,11 @@ Route::get('wsdb', function () {
 });
 
 // wildcard
+// http://ch9.dev/workshops/1
 Route::get('/workshops/{workshop}', function ($id) {
-    dd($id); // Laravel helper function
-    $workshops = DB::table('workshops')->latest()->get();
-    return view('wsdb', compact('workshops'));
+    $workshop = DB::table('workshops')->find($id);
+    //dd($id); // Laravel helper function die and dump
+    //dd($workshop);
+    //$workshops = DB::table('workshops')->latest()->get();
+    return view('workshops.show', compact('workshops', 'workshop'));
 });
