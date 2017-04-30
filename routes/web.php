@@ -36,5 +36,5 @@ Route::get('/workshops/{workshop}', function ($id) {
     //dd($id); // Laravel helper function die and dump
     //dd($workshop);
     //$workshops = DB::table('workshops')->latest()->get();
-    return view('workshops.show', compact('workshops', 'workshop'));
+    return view('workshops.show', compact('workshop'));
 });
