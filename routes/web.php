@@ -11,10 +11,12 @@
 |
 */
 
+// Basic routing
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Routing with uri and closure
 Route::get('amwaj', function () {
      return view ('amwaj', [
      'name' => 'CH9'
@@ -23,12 +25,13 @@ Route::get('amwaj', function () {
 
 // Query Builder in action
 Route::get('wsdb', function () {
-$workshops = DB::table('workshops')->latest()->get();
-return view('wsdb', compact('workshops'));
+    $workshops = DB::table('workshops')->latest()->get();
+    return view('wsdb', compact('workshops'));
 });
 
 // wildcard
-Route::get('/workshops/{workshop}', function () {
-$workshops = DB::table('workshops')->latest()->get();
-return view('wsdb', compact('workshops'));
+Route::get('/workshops/{workshop}', function ($id) {
+    dd($id); // Laravel helper function
+    $workshops = DB::table('workshops')->latest()->get();
+    return view('wsdb', compact('workshops'));
 });
