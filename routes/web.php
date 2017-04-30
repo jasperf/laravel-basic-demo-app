@@ -38,3 +38,8 @@ Route::get('/workshops/{workshop}', function ($id) {
     //$workshops = DB::table('workshops')->latest()->get();
     return view('workshops.show', compact('workshop'));
 });
+
+// Controllers and their methods
+// route::get('/workshops', 'WorkshopsController@index');
+// route::get('/workshops/{workshop}', 'WorkshopsController@show');
+
